@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>AWS Image Filters</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#">Category</a>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+
+          <!--/stories-->
+          <div class="row">    
+
+            <div class="col-md-10 col-sm-9" id="mainContainer">
+              <h3>Upload images</h3>
+                
+                <form action="https://lab4-weeia.s3.amazonaws.com/" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" name="key" value="#key#/${filename}">
+                  <input type="hidden" name="acl" value="private"> 
+                  <input type="hidden" name="success_action_redirect" value="http://localhost:3000/">
+                  <input type="hidden" name="AWSAccessKeyId" value="#AWSAccessKeyId#"> 
+                  <input type="hidden" name="policy" value="#policy#">
+                  <input type="hidden" name="signature" value="#signature#">
+<!--                  <input type="hidden" name="Content-Type" value="image/jpeg">-->
+                  <!-- Include any additional input fields here -->
+
+                  File to upload to S3: 
+                  <input name="file" type="file" accept="image/*"> 
+                  <input type="submit" value="Upload File to S3"> 
+                </form> 
+                <div id="imageContainer">
+                      <h3>Images list</h3>
+                        <div id="filtersForm">
+                            <table id ="imgTable" class="fileTable">
+                                <tr>
+                                    <th></th>
+                                    <th>Image Name</th>
+                                    <th></th>
+                                </tr>
+                                #allImages#
+                            </table>
+                            <p id="tableSeparator"></p>
+                            <table id="filtersTable" class="filtersTable">
+                                <tr>
+                                    <td><input type="checkbox" id="scale"></td>
+                                    <td>Scale</td>
+                                    <td>Height Scale: <input type="range" id="scaleHRange" min="0.5" max="5" step="0.5"  onchange="updateTextInput('scaleHInput',this.value);">
+                                        <p id="scaleHInput"></p>
+                                    </td>
+                                    <td>Width Scale: <input type="range" id="scaleWRange" min="0.5" max="5" step="0.5" onchange="updateTextInput('scaleWInput',this.value);">
+                                        <p id="scaleWInput"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="rotate"></td>
+                                    <td>Rotate</td>
+                                    <td>Angle (clockwise): <input type="range" id="rotateRange" min="0" max="360" step="10"  onchange="updateTextInput('rotateInput',this.value);">
+                                        <p id="rotateInput"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="blur"></td>
+                                    <td>Blur</td>
+                                    <td>Amount: <input type="number" id="blurInput" min="0" value="0">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="mirror"></td>
+                                    <td>Mirror</td>
+                                    <td>X: <input type="checkbox" id="mirrorX">
+                                    </td>
+                                    <td>Y: <input type="checkbox" id="mirrorY">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    <div id="filtersBottomFields">
+                        <input type="hidden" name="bucket" value="#bucket#">
+                        <input type="button" id="applyFiltersBtn" value="Apply filter">
+                    </div>
+                </div>
+                
+                
+            </div>
+          </div>
+          <hr>
+          
+          <!--/stories-->
+          
+        
+          
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+<hr>
+
+
+
+<hr>
+
+<hr>
+
+	<!-- script references -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <script src="js/myScript.js"></script>
+	</body>
+</html>
