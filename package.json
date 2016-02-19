@@ -4,16 +4,25 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
-	"webs-weeia": "0.0.2",
+    "webs-weeia": "0.0.2",
     "ejs": "^1.0.0",
     "moment": "^2.5.1",
     "async": "^0.2.10",
     "aws-sdk": "^2.0.0-rc13"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pramuspl/awsApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pramuspl/awsApp/issues"
+  },
+  "homepage": "https://github.com/Pramuspl/awsApp#readme"
 }
