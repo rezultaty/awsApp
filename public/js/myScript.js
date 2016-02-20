@@ -49,7 +49,7 @@ $('#applyFiltersBtn').click(function(evt){
             }
             var data = JSON.stringify(json);
             if (Object.keys(json.filters).length){
-                $.post("http://localhost:3000/applyFilters",json);
+                $.post("/applyFilters",json);
             } else {
                 console.log("No filters applied");
             }
@@ -61,7 +61,7 @@ $('.deleteBtn').click(function(evt, sender, c){
     var data = {};
         data.key=evt.target.parentNode.parentNode.getAttribute("value");
     
-    $.post("http://localhost:3000/delete",data).done(function (res){
+    $.post("/delete",data).done(function (res){
         console.log(res);
         location.reload(HTMLOptGroupElement);
     });  
@@ -71,7 +71,7 @@ $('.previewBtn').click(function(evt, sender, c){
     var data = {};
         data.key=evt.target.parentNode.parentNode.getAttribute("value");
     
-    $.post("http://localhost:3000/preview",data).done(function (res){
+    $.post("/preview",data).done(function (res){
 //        var imageString = res.toString('base64');
         
         console.log(res);
