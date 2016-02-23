@@ -2,7 +2,7 @@
 	"conditions": [  ["starts-with", "$key", "aandrzejewski/"],
                      {"bucket": "lab4-weeia"}, 
     				 {"acl": "private"},
-    				 {"success_action_redirect": "http://localhost:8080/"},   
+    				 {"success_action_redirect": "http://aandrzejewskiELB-803033826.us-west-2.elb.amazonaws.com/"},   
     				 ["content-length-range", 0, 10485760]
     				]   
 }
